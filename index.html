@@ -1,256 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sujan K S - AWS & DevOps Engineer</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujan K S - AWS & DevOps Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      background: linear-gradient(45deg, #1E3A8A, #000000, #1E3A8A);
+      background-size: 200% 200%;
+      animation: gradientShift 6s ease infinite;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Particle Background for Hero */
+    #particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      animation: float 15s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); opacity: 0.5; }
+      50% { transform: translateY(-20px); opacity: 0.8; }
+    }
+
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    header h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    header p {
+      font-size: 1.5rem;
+      opacity: 0.9;
+      display: inline-block;
+      border-right: 2px solid white;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 3s steps(30, end), blink 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent; }
+      50% { border-color: white; }
+    }
+
+    .contact-links {
+      margin-top: 20px;
+    }
+
+    .contact-links a {
+      color: #00DDEB;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    .contact-links a:hover {
+      color: #4A90E2;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 15px 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 20px;
+      font-weight: 600;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00DDEB;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #00DDEB;
+      left: 0;
+      bottom: -5px;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .ripple {
+      position: absolute;
+      background: rgba(0, 221, 235, 0.3);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: rippleEffect 0.8s ease-out;
+    }
+
+    @keyframes rippleEffect {
+      0% { transform: scale(0); opacity: 1; }
+      100% { transform: scale(4); opacity: 0; }
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #00DDEB;
+      text-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
+    }
+
+    section p, section li {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      padding: 25px;
+      border-radius: 15px;
+      margin-bottom: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .glass-card:hover, .glass-card:active {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px rgba(0, 221, 235, 0.5);
+    }
+
+    .glass-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #00DDEB;
+    }
+
+    #back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #00DDEB;
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      z-index: 100;
+      transition: background 0.3s ease;
+    }
+
+    #back-to-top:hover {
+      background: #4A90E2;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Sujan K S</div>
-            <ul class="nav-links">
-                <li><a href="#objective">Objective</a></li>
-                <li><a href="#summary">Summary</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#education">Education</a></li>
-            </ul>
-            <div class="hamburger">☰</div>
-        </nav>
-    </header>
+  <div id="particles"></div>
 
-    <main>
-        <section id="hero">
-            <h1>Sujan K S</h1>
-            <p>AWS & DevOps Engineer</p>
-            <p>+91 9632934190 | <a href="mailto:sks.awsdev@gmail.com">sks.awsdev@gmail.com</a></p>
-            <p>
-                <a href="https://linkedin.com/in/isks" target="_blank">LinkedIn</a> | 
-                <a href="https://github.com/sks-awsdev" target="_blank">GitHub</a> | 
-                <a href="Sujan_K_S_AWS_DevOps_Resume.pdf" download>Download Resume</a>
-            </p>
-        </section>
+  <header>
+    <h1>Sujan K S</h1>
+    <p>AWS & DevOps Engineer</p>
+    <div class="contact-links">
+      <a href="tel:+919632934190">+91 9632934190</a> |
+      <a href="mailto:sks.awsdev@gmail.com">sks.awsdev@gmail.com</a> |
+      <a href="https://linkedin.com/in/isks" target="_blank">LinkedIn</a> |
+      <a href="https://github.com/suanx" target="_blank">GitHub</a>
+    </div>
+  </header>
 
-        <section id="objective">
-            <h2>Objective</h2>
-            <p>Motivated and detail-oriented AWS & DevOps Engineer, trained in modern DevOps tools and cloud infrastructure, seeking an entry-level DevOps role to build scalable, automated, and secure cloud infrastructure and CI/CD pipelines. Passionate about cloud-native solutions, continuous integration/delivery, and proactive monitoring.</p>
-        </section>
+  <nav>
+    <a href="#objective">Objective</a>
+    <a href="#summary">Summary</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#education">Education</a>
+  </nav>
 
-        <section id="summary">
-            <h2>Summary</h2>
-            <ul>
-                <li>AWS and DevOps fresher with hands-on project experience in CI/CD, cloud deployment, containerization, and monitoring.</li>
-                <li>Built end-to-end DevOps pipelines using Jenkins, GitHub, Docker, and Terraform.</li>
-                <li>Deployed real-time applications on AWS EC2, configured VPC networks, and hosted static sites on S3.</li>
-                <li>Experience with infrastructure monitoring (Prometheus, Grafana, CloudWatch) and basic configuration management using Ansible.</li>
-                <li>Quick learner with strong practical skills and team collaboration mindset.</li>
-            </ul>
-        </section>
+  <section id="objective">
+    <h2>Objective</h2>
+    <div class="glass-card">
+      <p>Motivated and detail-oriented AWS & DevOps Engineer, trained in modern DevOps tools and cloud infrastructure, seeking an entry-level DevOps role to build scalable, automated, and secure cloud infrastructure and CI/CD pipelines. Passionate about cloud-native solutions, continuous integration/delivery, and proactive monitoring.</p>
+    </div>
+  </section>
 
-        <section id="skills">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div><strong>Cloud Platforms:</strong> AWS (EC2, S3, IAM, VPC, RDS, Auto Scaling, ELB, CloudWatch)</div>
-                <div><strong>DevOps Tools:</strong> Jenkins (Freestyle & Pipeline), Git, GitHub, Docker, Terraform</div>
-                <div><strong>CI/CD:</strong> Jenkins Pipelines, GitHub Integration, Shell Scripting</div>
-                <div><strong>Infrastructure as Code:</strong> Terraform, YAML</div>
-                <div><strong>Monitoring:</strong> Prometheus, Grafana, AWS CloudWatch</div>
-                <div><strong>OS & Scripting:</strong> Linux (Amazon Linux, Ubuntu), Bash</div>
-                <div><strong>Basics:</strong> Ansible, Kubernetes (Intro level)</div>
-            </div>
-        </section>
+  <section id="summary">
+    <h2>Summary</h2>
+    <div class="glass-card">
+      <ul>
+        <li>AWS and DevOps fresher with hands-on project experience in CI/CD, cloud deployment, containerization, and monitoring.</li>
+        <li>Built end-to-end DevOps pipelines using Jenkins, GitHub, Docker, and Terraform.</li>
+        <li>Deployed real-time applications on AWS EC2, configured VPC networks, and hosted static sites on S3.</li>
+        <li>Experience with infrastructure monitoring (Prometheus, Grafana, CloudWatch) and basic configuration management using Ansible.</li>
+        <li>Quick learner with strong practical skills and team collaboration mindset.</li>
+      </ul>
+    </div>
+  </section>
 
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="project">
-                <h3>CI/CD with Jenkins, Docker & GitHub</h3>
-                <p>Built a complete CI/CD pipeline using Jenkins to pull code from GitHub, build a Docker image, and push it to DockerHub (sks-awsdev repo). Deployed a web app on AWS EC2 with Docker.</p>
-            </div>
-            <div class="project">
-                <h3>Automated EC2 Deployment using Jenkins Freestyle Job</h3>
-                <p>Configured Jenkins Freestyle job to auto-deploy a GitHub-based web application on EC2 via shell scripting.</p>
-            </div>
-            <div class="project">
-                <h3>AWS VPC Setup (2-tier Architecture)</h3>
-                <p>Created a secure VPC with public/private subnets, NAT Gateway, and route tables. Deployed EC2 instances and simulated real-world infrastructure scenarios.</p>
-            </div>
-            <div class="project">
-                <h3>Static Website Hosting on AWS S3</h3>
-                <p>Hosted a personal portfolio website using AWS S3. Configured bucket policies and enabled public access.</p>
-            </div>
-            <div class="project">
-                <h3>Monitoring with Prometheus & Grafana</h3>
-                <p>Installed and configured Prometheus & Grafana on EC2 to monitor Docker containers and system metrics. Built dashboards for resource usage and alerts.</p>
-            </div>
-            <div class="project">
-                <h3>Infrastructure Automation using Terraform</h3>
-                <p>Used Terraform to provision AWS infrastructure including EC2, S3, and IAM roles. Created reusable modules and managed state files for consistent deployment.</p>
-            </div>
-            <div class="project">
-                <h3>Kubernetes Deployment Rollback with Helm</h3>
-                <p>Managed containerized app deployments using Kubernetes and Helm. Tested version rollbacks using helm rollback for safer releases and quick recovery from bad deployments.</p>
-            </div>
-            <div class="project">
-                <h3>S3-Based Static Asset Deployment with Versioning</h3>
-                <p>Created a versioned static asset delivery system using AWS S3, CloudFront, and lifecycle rules. Enabled smooth updates and rollbacks for web UI content with minimal downtime.</p>
-            </div>
-        </section>
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="glass-card">
+      <p><strong>Cloud Platforms:</strong> AWS (EC2, S3, IAM, VPC, RDS, Auto Scaling, ELB, CloudWatch)</p>
+      <p><strong>DevOps Tools:</strong> Jenkins (Freestyle & Pipeline), Git, GitHub, Docker, Terraform</p>
+      <p><strong>CI/CD:</strong> Jenkins Pipelines, GitHub Integration, Shell Scripting</p>
+      <p><strong>Infrastructure as Code:</strong> Terraform, YAML</p>
+      <p><strong>Monitoring:</strong> Prometheus, Grafana, AWS CloudWatch</p>
+      <p><strong>OS & Scripting:</strong> Linux (Amazon Linux, Ubuntu), Bash</p>
+      <p><strong>Basics:</strong> Ansible, Kubernetes (Intro level)</p>
+    </div>
+  </section>
 
-        <section id="certifications">
-            <h2>Certifications</h2>
-            <ul>
-                <li>AWS Solutions Architect - 2025 (MicroDegree)</li>
-                <li>DevOps Engineer - 2025 (MicroDegree)</li>
-                <li>Covered AWS, Jenkins, Docker, Kubernetes, Terraform, Ansible, Monitoring, Linux</li>
-            </ul>
-        </section>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="glass-card">
+      <h3>CI/CD with Jenkins, Docker & GitHub</h3>
+      <p>Built a complete CI/CD pipeline using Jenkins to pull code from GitHub, build a Docker image, and push it to DockerHub (suanx repo). Deployed a web app on AWS EC2 with Docker.</p>
+    </div>
+    <div class="glass-card">
+      <h3>Automated EC2 Deployment using Jenkins Freestyle Job</h3>
+      <p>Configured Jenkins Freestyle job to auto-deploy a GitHub-based web application on EC2 via shell scripting.</p>
+    </div>
+    <div class="glass-card">
+      <h3>AWS VPC Setup (2-tier Architecture)</h3>
+      <p>Created a secure VPC with public/private subnets, NAT Gateway, and route tables. Deployed EC2 instances and simulated real-world infrastructure scenarios.</p>
+    </div>
+    <div class="glass-card">
+      <h3>Static Website Hosting on AWS S3</h3>
+      <p>Hosted a personal portfolio website using AWS S3. Configured bucket policies and enabled public access.</p>
+    </div>
+    <div class="glass-card">
+      <h3>Monitoring with Prometheus & Grafana</h3>
+      <p>Installed and configured Prometheus & Grafana on EC2 to monitor Docker containers and system metrics. Built dashboards for resource usage and alerts.</p>
+    </div>
+    <div class="glass-card">
+      <h3>Infrastructure Automation using Terraform</h3>
+      <p>Used Terraform to provision AWS infrastructure including EC2, S3, and IAM roles. Created reusable modules and managed state files for consistent deployment.</p>
+    </div>
+    <div class="glass-card">
+      <h3>Kubernetes Deployment Rollback with Helm</h3>
+      <p>Managed containerized app deployments using Kubernetes and Helm. Tested version rollbacks using helm rollback for safer releases and quick recovery from bad deployments.</p>
+    </div>
+    <div class="glass-card">
+      <h3>S3-Based Static Asset Deployment with Versioning</h3>
+      <p>Created a versioned static asset delivery system using AWS S3, CloudFront, and lifecycle rules. Enabled smooth updates and rollbacks for web UI content with minimal downtime.</p>
+    </div>
+  </section>
 
-        <section id="education">
-            <h2>Education</h2>
-            <div class="education">
-                <h3>B.E. in Electronics & Communication</h3>
-                <p>N.M.A.M Institute of Technology, Nitte - 2024</p>
-            </divPillars of the page content, including the navigation bar, styled sections, and responsive design, should now be visible. If they’re still not showing, let’s revisit the files and deployment settings.
+  <section id="certifications">
+    <h2>Certifications</h2>
+    <div class="glass-card">
+      <p><strong>AWS Solutions Architect - 2025 (MicroDegree)</strong></p>
+      <p><strong>DevOps Engineer - 2025 (MicroDegree)</strong></p>
+      <p>Covered AWS, Jenkins, Docker, Kubernetes, Terraform, Ansible, Monitoring, Linux</p>
+    </div>
+  </section>
 
-### Step 1: Verify File Content
-- **Re-upload Files**: Since the page is still not displaying correctly, let’s re-upload the files to ensure they’re correct. I’ll provide the full content again, and you can replace the existing files on GitHub.
-- **Check File Names**: Ensure the files are named exactly `index.html`, `styles.css`, and `script.js` (lowercase, no extra spaces).
+  <section id="education">
+    <h2>Education</h2>
+    <div class="glass-card">
+      <p><strong>B.E. in Electronics & Communication</strong><br>N.M.A.M Institute of Technology, Nitte - 2024</p>
+      <p><strong>Diploma in Electronics & Communication</strong><br>N.R.A.M Polytechnic, Nitte - 2021</p>
+    </div>
+  </section>
 
-Below is the corrected `index.html` with the updated resume link (already provided in the previous message), along with the other files for completeness.
+  <button id="back-to-top" onclick="scrollToTop()">↑</button>
 
-<xaiArtifact artifact_id="2e5ab1b9-b276-49ec-be06-830f7db2f4ed" artifact_version_id="df60457a-d45c-4e78-a829-5a285fecef72" title="index.html" contentType="text/html">
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sujan K S - AWS & DevOps Engineer</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">Sujan K S</div>
-            <ul class="nav-links">
-                <li><a href="#objective">Objective</a></li>
-                <li><a href="#summary">Summary</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#education">Education</a></li>
-            </ul>
-            <div class="hamburger">☰</div>
-        </nav>
-    </header>
+  <script>
+    // Particle Effect
+    const particlesContainer = document.getElementById('particles');
+    for (let i = 0; i < 50; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      particle.style.width = `${Math.random() * 5 + 2}px`;
+      particle.style.height = particle.style.width;
+      particle.style.left = `${Math.random() * 100}vw`;
+      particle.style.top = `${Math.random() * 100}vh`;
+      particle.style.animationDelay = `${Math.random() * 10}s`;
+      particlesContainer.appendChild(particle);
+    }
 
-    <main>
-        <section id="hero">
-            <h1>Sujan K S</h1>
-            <p>AWS & DevOps Engineer</p>
-            <p>+91 9632934190 | <a href="mailto:sks.awsdev@gmail.com">sks.awsdev@gmail.com</a></p>
-            <p>
-                <a href="https://linkedin.com/in/isks" target="_blank">LinkedIn</a> | 
-                <a href="https://github.com/sks-awsdev" target="_blank">GitHub</a> | 
-                <a href="Sujan_K_S_AWS_DevOps_Resume.pdf" download>Download Resume</a>
-            </p>
-        </section>
+    // Ripple Effect on Nav Links
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        ripple.classList.add('ripple');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        ripple.style.width = ripple.style.height = `${size}px`;
+        ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+        ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+        this.appendChild(ripple);
+      });
+    });
 
-        <section id="objective">
-            <h2>Objective</h2>
-            <p>Motivated and detail-oriented AWS & DevOps Engineer, trained in modern DevOps tools and cloud infrastructure, seeking an entry-level DevOps role to build scalable, automated, and secure cloud infrastructure and CI/CD pipelines. Passionate about cloud-native solutions, continuous integration/delivery, and proactive monitoring.</p>
-        </section>
+    // Back to Top Button
+    const backToTopButton = document.getElementById('back-to-top');
+    window.onscroll = function() {
+      if (window.scrollY > 300) {
+        backToTopButton.style.display = 'block';
+      } else {
+        backToTopButton.style.display = 'none';
+      }
+    };
 
-        <section id="summary">
-            <h2>Summary</h2>
-            <ul>
-                <li>AWS and DevOps fresher with hands-on project experience in CI/CD, cloud deployment, containerization, and monitoring.</li>
-                <li>Built end-to-end DevOps pipelines using Jenkins, GitHub, Docker, and Terraform.</li>
-                <li>Deployed real-time applications on AWS EC2, configured VPC networks, and hosted static sites on S3.</li>
-                <li>Experience with infrastructure monitoring (Prometheus, Grafana, CloudWatch) and basic configuration management using Ansible.</li>
-                <li>Quick learner with strong practical skills and team collaboration mindset.</li>
-            </ul>
-        </section>
-
-        <section id="skills">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div><strong>Cloud Platforms:</strong> AWS (EC2, S3, IAM, VPC, RDS, Auto Scaling, ELB, CloudWatch)</div>
-                <div><strong>DevOps Tools:</strong> Jenkins (Freestyle & Pipeline), Git, GitHub, Docker, Terraform</div>
-                <div><strong>CI/CD:</strong> Jenkins Pipelines, GitHub Integration, Shell Scripting</div>
-                <div><strong>Infrastructure as Code:</strong> Terraform, YAML</div>
-                <div><strong>Monitoring:</strong> Prometheus, Grafana, AWS CloudWatch</div>
-                <div><strong>OS & Scripting:</strong> Linux (Amazon Linux, Ubuntu), Bash</div>
-                <div><strong>Basics:</strong> Ansible, Kubernetes (Intro level)</div>
-            </div>
-        </section>
-
-        <section id="projects">
-            <h2>Projects</h2>
-            <div class="project">
-                <h3>CI/CD with Jenkins, Docker & GitHub</h3>
-                <p>Built a complete CI/CD pipeline using Jenkins to pull code from GitHub, build a Docker image, and push it to DockerHub (sks-awsdev repo). Deployed a web app on AWS EC2 with Docker.</p>
-            </div>
-            <div class="project">
-                <h3>Automated EC2 Deployment using Jenkins Freestyle Job</h3>
-                <p>Configured Jenkins Freestyle job to auto-deploy a GitHub-based web application on EC2 via shell scripting.</p>
-            </div>
-            <div class="project">
-                <h3>AWS VPC Setup (2-tier Architecture)</h3>
-                <p>Created a secure VPC with public/private subnets, NAT Gateway, and route tables. Deployed EC2 instances and simulated real-world infrastructure scenarios.</p>
-            </div>
-            <div class="project">
-                <h3>Static Website Hosting on AWS S3</h3>
-                <p>Hosted a personal portfolio website using AWS S3. Configured bucket policies and enabled public access.</p>
-            </div>
-            <div class="project">
-                <h3>Monitoring with Prometheus & Grafana</h3>
-                <p>Installed and configured Prometheus & Grafana on EC2 to monitor Docker containers and system metrics. Built dashboards for resource usage and alerts.</p>
-            </div>
-            <div class="project">
-                <h3>Infrastructure Automation using Terraform</h3>
-                <p>Used Terraform to provision AWS infrastructure including EC2, S3, and IAM roles. Created reusable modules and managed state files for consistent deployment.</p>
-            </div>
-            <div class="project">
-                <h3>Kubernetes Deployment Rollback with Helm</h3>
-                <p>Managed containerized app deployments using Kubernetes and Helm. Tested version rollbacks using helm rollback for safer releases and quick recovery from bad deployments.</p>
-            </div>
-            <div class="project">
-                <h3>S3-Based Static Asset Deployment with Versioning</h3>
-                <p>Created a versioned static asset delivery system using AWS S3, CloudFront, and lifecycle rules. Enabled smooth updates and rollbacks for web UI content with minimal downtime.</p>
-            </div>
-        </section>
-
-        <section id="certifications">
-            <h2>Certifications</h2>
-            <ul>
-                <li>AWS Solutions Architect - 2025 (MicroDegree)</li>
-                <li>DevOps Engineer - 2025 (MicroDegree)</li>
-                <li>Covered AWS, Jenkins, Docker, Kubernetes, Terraform, Ansible, Monitoring, Linux</li>
-            </ul>
-        </section>
-
-        <section id="education">
-            <h2>Education</h2>
-            <div class="education">
-                <h3>B.E. in Electronics & Communication</h3>
-                <p>N.M.A.M Institute of Technology, Nitte - 2024</p>
-            </div>
-            <div class="education">
-                <h3>Diploma in Electronics & Communication</h3>
-                <p>N.R.A.M Polytechnic, Nitte - 2021</p>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>© 2025 Sujan K S. All rights reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
