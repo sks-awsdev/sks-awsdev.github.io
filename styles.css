@@ -1,155 +1,215 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
-    line-height: 1.6;
-    color: #333;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  background: linear-gradient(45deg, #1E3A8A, #000000, #1E3A8A);
+  background-size: 200% 200%;
+  animation: gradientShift 6s ease infinite;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Particle Background for Hero */
+#particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: float 15s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(-20px); opacity: 0.8; }
 }
 
 header {
-    background: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+header h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+header p {
+  font-size: 1.5rem;
+  opacity: 0.9;
+  display: inline-block;
+  border-right: 2px solid white;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3s steps(30, end), blink 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: white; }
+}
+
+.contact-links {
+  margin-top: 20px;
+}
+
+.contact-links a {
+  color: #00DDEB;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.contact-links a:hover {
+  color: #4A90E2;
 }
 
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 5%;
-    max-width: 1200px;
-    margin: 0 auto;
+  position: sticky;
+  top: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 15px 0;
+  z-index: 100;
 }
 
-.logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #007bff;
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 20px;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
+nav a:hover {
+  color: #00DDEB;
 }
 
-.nav-links li a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 400;
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #00DDEB;
+  left: 0;
+  bottom: -5px;
+  transition: width 0.3s ease;
 }
 
-.nav-links li a:hover {
-    color: #007bff;
+nav a:hover::after {
+  width: 100%;
 }
 
-.hamburger {
-    display: none;
-    font-size: 1.5rem;
-    cursor: pointer;
+.ripple {
+  position: absolute;
+  background: rgba(0, 221, 235, 0.3);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: rippleEffect 0.8s ease-out;
 }
 
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem 5%;
+@keyframes rippleEffect {
+  0% { transform: scale(0); opacity: 1; }
+  100% { transform: scale(4); opacity: 0; }
 }
 
 section {
-    margin-bottom: 3rem;
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
-h1 {
-    font-size: 2.5rem;
-    color: #007bff;
+section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #00DDEB;
+  text-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
 }
 
-h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid #007bff;
-    display: inline-block;
+section p, section li {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 15px;
 }
 
-h3 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
+ul {
+  list-style: none;
 }
 
-p, li {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 25px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-a {
-    color: #007bff;
-    text-decoration: none;
+.glass-card:hover, .glass-card:active {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px rgba(0, 221, 235, 0.5);
 }
 
-a:hover {
-    text-decoration: underline;
+.glass-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #00DDEB;
 }
 
-#hero {
-    text-align: center;
-    padding: 3rem 0;
+#back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #00DDEB;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+  z-index: 100;
+  transition: background 0.3s ease;
 }
 
-#hero p {
-    margin: 0.5rem 0;
-}
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-}
-
-.project, .education {
-    background: #f9f9f9;
-    padding: 1rem;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-}
-
-footer {
-    text-align: center;
-    padding: 1rem;
-    background: #f1f1f1;
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: #fff;
-        padding: 1rem;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
+#back-to-top:hover {
+  background: #4A90E2;
 }
