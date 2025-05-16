@@ -1,3 +1,4 @@
+/* General Styles */
 * {
   margin: 0;
   padding: 0;
@@ -17,9 +18,15 @@ body {
 }
 
 @keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* Particle Background for Hero */
@@ -41,10 +48,18 @@ body {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); opacity: 0.5; }
-  50% { transform: translateY(-20px); opacity: 0.8; }
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-20px);
+    opacity: 0.8;
+  }
 }
 
+/* Header Styles */
 header {
   height: 100vh;
   display: flex;
@@ -54,6 +69,7 @@ header {
   text-align: center;
   position: relative;
   z-index: 2;
+  padding: 20px;
 }
 
 header h1 {
@@ -74,31 +90,25 @@ header p {
 }
 
 @keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes blink {
-  from, to { border-color: transparent; }
-  50% { border-color: white; }
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
 }
 
-.contact-links {
-  margin-top: 20px;
-}
-
-.contact-links a {
-  color: #00DDEB;
-  text-decoration: none;
-  margin: 0 15px;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.contact-links a:hover {
-  color: #4A90E2;
-}
-
+/* Navigation Styles */
 nav {
   position: sticky;
   top: 0;
@@ -106,6 +116,8 @@ nav {
   backdrop-filter: blur(10px);
   padding: 15px 0;
   z-index: 100;
+  display: flex;
+  justify-content: center;
 }
 
 nav a {
@@ -114,11 +126,12 @@ nav a {
   margin: 0 20px;
   font-weight: 600;
   position: relative;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 nav a:hover {
   color: #00DDEB;
+  transform: scale(1.05);
 }
 
 nav a::after {
@@ -136,19 +149,7 @@ nav a:hover::after {
   width: 100%;
 }
 
-.ripple {
-  position: absolute;
-  background: rgba(0, 221, 235, 0.3);
-  border-radius: 50%;
-  pointer-events: none;
-  animation: rippleEffect 0.8s ease-out;
-}
-
-@keyframes rippleEffect {
-  0% { transform: scale(0); opacity: 1; }
-  100% { transform: scale(4); opacity: 0; }
-}
-
+/* Section Styles */
 section {
   padding: 60px 20px;
   max-width: 900px;
@@ -164,7 +165,8 @@ section h2 {
   text-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
 }
 
-section p, section li {
+section p,
+section li {
   font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: 15px;
@@ -174,6 +176,7 @@ ul {
   list-style: none;
 }
 
+/* Glass Card Styles */
 .glass-card {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -184,7 +187,8 @@ ul {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.glass-card:hover, .glass-card:active {
+.glass-card:hover,
+.glass-card:active {
   transform: scale(1.03);
   box-shadow: 0 0 20px rgba(0, 221, 235, 0.5);
 }
@@ -195,6 +199,7 @@ ul {
   color: #00DDEB;
 }
 
+/* Back to Top Button Styles */
 #back-to-top {
   position: fixed;
   bottom: 30px;
@@ -212,4 +217,27 @@ ul {
 
 #back-to-top:hover {
   background: #4A90E2;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 3rem;
+  }
+  header p {
+    font-size: 1.2rem;
+  }
+  nav a {
+    margin: 0 10px;
+  }
+  section h2 {
+    font-size: 2rem;
+  }
+  section p,
+  section li {
+    font-size: 1rem;
+  }
+  #back-to-top {
+    padding: 10px;
+  }
 }
