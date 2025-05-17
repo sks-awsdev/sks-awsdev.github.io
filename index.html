@@ -4,8 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Sujan K S, AWS & DevOps Engineer showcasing skills, projects, and certifications.">
   <title>Sujan K S - AWS & DevOps Engineer</title>
-<link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/svg+xml" href="/logo.svg">
+  <link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -176,6 +179,22 @@
       width: 100%;
     }
 
+    .ripple {
+      position: absolute;
+      background: rgba(0, 221, 235, 0.3);
+      border-radius: 50%;
+      transform: scale(0);
+      animation: ripple 0.6s linear;
+      pointer-events: none;
+    }
+
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
     section {
       padding: 60px 20px;
       max-width: 900px;
@@ -247,7 +266,7 @@
       header h1 {
         font-size: 3rem;
       }
-    
+
       header p {
         font-size: 1.2rem;
       }
@@ -255,12 +274,13 @@
       nav a {
         margin: 0 10px;
       }
-    
+
       section h2 {
         font-size: 2rem;
       }
-    
-      section p, section li {
+
+      section p,
+      section li {
         font-size: 1rem;
       }
 
@@ -278,10 +298,10 @@
     <h1>Sujan K S</h1>
     <p>AWS & DevOps Engineer</p>
     <div class="contact-links">
-      <a href="tel:+919632934190">+91 9632934190</a> |
-      <a href="mailto:sks.awsdev@gmail.com">sks.awsdev@gmail.com</a> |
-      <a href="https://linkedin.com/in/isks" target="_blank">LinkedIn</a> |
-      <a href="https://github.com/sks-awsdev" target="_blank">GitHub</a>
+      <a href="tel:+919632934190" aria-label="Phone number: +91 9632934190">+91 9632934190</a> |
+      <a href="mailto:sks.awsdev@gmail.com" aria-label="Email: sks.awsdev@gmail.com">sks.awsdev@gmail.com</a> |
+      <a href="https://linkedin.com/in/isks" target="_blank" aria-label="LinkedIn profile">LinkedIn</a> |
+      <a href="https://github.com/sks-awsdev" target="_blank" aria-label="GitHub profile">GitHub</a>
     </div>
   </header>
 
@@ -405,6 +425,7 @@
         ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
         ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
         this.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 600); // Remove ripple after animation
       });
     });
 
