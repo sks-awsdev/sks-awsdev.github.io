@@ -1,3 +1,14 @@
+/* CSS Variables for Reusable Colors */
+:root {
+  --primary-color: #00DDEB;
+  --hover-color: #4A90E2;
+  --white: white;
+  --shadow-color: rgba(0, 221, 235, 0.5);
+  --particle-color: rgba(255, 255, 255, 0.3);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+}
+
 /* General Styles */
 * {
   margin: 0;
@@ -8,7 +19,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  color: white;
+  color: var(--white);
   background: linear-gradient(45deg, #1E3A8A, #000000, #1E3A8A);
   background-size: 200% 200%;
   animation: gradientShift 6s ease infinite;
@@ -18,15 +29,9 @@ body {
 }
 
 @keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Particle Background for Hero */
@@ -42,14 +47,13 @@ body {
 
 .particle {
   position: absolute;
-  background: rgba(255, 255, 255, 0.3);
+  background: var(--particle-color);
   border-radius: 50%;
   animation: float 15s infinite ease-in-out;
 }
 
 @keyframes float {
-  0%,
-  100% {
+  0%, 100% {
     transform: translateY(0);
     opacity: 0.5;
   }
@@ -76,36 +80,44 @@ header h1 {
   font-size: 4rem;
   font-weight: 700;
   margin-bottom: 10px;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 0 10px var(--particle-color);
 }
 
 header p {
   font-size: 1.5rem;
   opacity: 0.9;
   display: inline-block;
-  border-right: 2px solid white;
+  border-right: 2px solid var(--white);
   white-space: nowrap;
   overflow: hidden;
   animation: typing 3s steps(30, end), blink 0.75s step-end infinite;
 }
 
 @keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
+  from { width: 0; }
+  to { width: 100%; }
 }
 
 @keyframes blink {
-  from,
-  to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: white;
-  }
+  from, to { border-color: transparent; }
+  50% { border-color: var(--white); }
+}
+
+/* Contact Links */
+.contact-links {
+  margin-top: 20px;
+}
+
+.contact-links a {
+  color: var(--primary-color);
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.contact-links a:hover {
+  color: var(--hover-color);
 }
 
 /* Navigation Styles */
@@ -121,7 +133,7 @@ nav {
 }
 
 nav a {
-  color: white;
+  color: var(--white);
   text-decoration: none;
   margin: 0 20px;
   font-weight: 600;
@@ -130,7 +142,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #00DDEB;
+  color: var(--primary-color);
   transform: scale(1.05);
 }
 
@@ -139,7 +151,7 @@ nav a::after {
   position: absolute;
   width: 0;
   height: 2px;
-  background: #00DDEB;
+  background: var(--primary-color);
   left: 0;
   bottom: -5px;
   transition: width 0.3s ease;
@@ -147,6 +159,22 @@ nav a::after {
 
 nav a:hover::after {
   width: 100%;
+}
+
+.ripple {
+  position: absolute;
+  background: rgba(0, 221, 235, 0.3);
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
 }
 
 /* Section Styles */
@@ -161,12 +189,11 @@ section {
 section h2 {
   font-size: 2.5rem;
   margin-bottom: 30px;
-  color: #00DDEB;
-  text-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
+  color: var(--primary-color);
+  text-shadow: 0 0 10px var(--shadow-color);
 }
 
-section p,
-section li {
+section p, section li {
   font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: 15px;
@@ -178,25 +205,25 @@ ul {
 
 /* Glass Card Styles */
 .glass-card {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--glass-bg);
   backdrop-filter: blur(10px);
   padding: 25px;
   border-radius: 15px;
   margin-bottom: 25px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--glass-border);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .glass-card:hover,
 .glass-card:active {
   transform: scale(1.03);
-  box-shadow: 0 0 20px rgba(0, 221, 235, 0.5);
+  box-shadow: 0 0 20px var(--shadow-color);
 }
 
 .glass-card h3 {
   font-size: 1.5rem;
   margin-bottom: 15px;
-  color: #00DDEB;
+  color: var(--primary-color);
 }
 
 /* Back to Top Button Styles */
@@ -204,8 +231,8 @@ ul {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background: #00DDEB;
-  color: white;
+  background: var(--primary-color);
+  color: var(--white);
   border: none;
   padding: 15px;
   border-radius: 50%;
@@ -216,7 +243,7 @@ ul {
 }
 
 #back-to-top:hover {
-  background: #4A90E2;
+  background: var(--hover-color);
 }
 
 /* Media Queries for Responsiveness */
@@ -233,8 +260,7 @@ ul {
   section h2 {
     font-size: 2rem;
   }
-  section p,
-  section li {
+  section p, section li {
     font-size: 1rem;
   }
   #back-to-top {
