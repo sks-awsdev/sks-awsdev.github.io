@@ -1,138 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Sujan K S, AWS & DevOps Engineer showcasing skills, projects, and certifications.">
-  <title>Sujan K S - AWS & DevOps Engineer</title>
-  <link rel="icon" type="image/svg+xml" href="/logo.svg">
-  <link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sujan S — Modern Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-  <div id="particles"></div>
 
-  <header>
-    <h1>Sujan K S</h1>
-    <p>AWS & DevOps Engineer</p>
-    <div class="contact-links">
-      <span><a href="tel:+919632934190" aria-label="Phone number: +91 9632934190">+91 9632934190</a> | </span>
-      <span><a href="mailto:sks.awsdev@gmail.com" aria-label="Email: sks.awsdev@gmail.com">sks.awsdev@gmail.com</a></span>
-      <br>
-      <span><a href="https://sks-awsdev.github.io" target="_blank" class="font-bold" aria-label="Portfolio">Portfolio:</a> | </span>
-      <span><a href="https://linkedin.com/in/isks" target="_blank" class="font-bold" aria-label="LinkedIn profile">LinkedIn:</a> | </span>
-      <span><a href="https://github.com/sks-awsdev" target="_blank" class="font-bold" aria-label="GitHub profile">GitHub:</a></span>
-    </div>
-  </header>
+  <div class="glass-container">
+    <h1>Sujan S</h1>
+    <h2>Passionate AWS DevOps Trainee & Developer</h2>
+    <button class="btn-primary" id="helloBtn">Say Hello 👋</button>
 
-  <nav>
-    <a href="#summary">Summary</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#achievements">Achievements</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#education">Education</a>
-  </nav>
+    <section class="projects" aria-label="Projects">
+      <article class="project-card" tabindex="0">
+        <h3 class="project-title">AWS Automation Toolkit</h3>
+        <p class="project-desc">Automated AWS deployments using CloudFormation and Terraform with seamless CI/CD integration.</p>
+      </article>
+      <article class="project-card" tabindex="0">
+        <h3 class="project-title">Containerized Microservices</h3>
+        <p class="project-desc">Built scalable microservices with Docker & Kubernetes, focusing on high availability and resilience.</p>
+      </article>
+      <article class="project-card" tabindex="0">
+        <h3 class="project-title">Monitoring Dashboard</h3>
+        <p class="project-desc">Developed real-time monitoring dashboard with Prometheus and Grafana for system health tracking.</p>
+      </article>
+      <article class="project-card" tabindex="0">
+        <h3 class="project-title">Infrastructure as Code</h3>
+        <p class="project-desc">Implemented IaC strategies to manage cloud infrastructure reliably and repeatably using Terraform.</p>
+      </article>
+    </section>
+  </div>
 
-  <section id="summary">
-    <h2>Summary</h2>
-    <div class="glass-card">
-      <p>Dynamic AWS & DevOps Engineer with hands-on expertise in designing CI/CD pipelines, cloud infrastructure, and automation solutions. Skilled in Jenkins, Docker, Terraform, and AWS services (EC2, S3, VPC, CloudFront), delivering scalable, secure architectures in real-world projects. Certified AWS Solutions Architect and DevOps Engineer (2025). Adept at problem-solving and adapting to complex challenges, passionate about optimizing workflows, reducing costs, and driving cloud-native innovation. Committed to delivering immediate value to innovative DevOps teams through modern practices and collaboration.</p>
-    </div>
-  </section>
-
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="glass-card">
-      <div class="skills-grid">
-        <ul class="list-disc pl-5">
-          <li><strong>Cloud Platforms</strong>: AWS (EC2, S3, IAM, VPC, RDS, ELB, Auto Scaling, CloudWatch, CloudFront, Route 53, Lambda)</li>
-          <li><strong>DevOps Tools</strong>: Jenkins (Freestyle, Pipelines), Git, GitHub, GitLab, Docker, Terraform, Ansible (Basics), Kubernetes (Intro), Helm</li>
-          <li><strong>CI/CD</strong>: Jenkins Pipelines, GitHub Webhooks, GitLab CI (Intro), Shell Scripting, YAML, Docker Hub Integration</li>
-          <li><strong>Infrastructure as Code</strong>: Terraform (Modules, State Management), AWS CloudFormation (Basics)</li>
-        </ul>
-        <ul class="list-disc pl-5">
-          <li><strong>Monitoring & Logging</strong>: Prometheus, Grafana, AWS CloudWatch, ELK Stack (Intro)</li>
-          <li><strong>Operating Systems</strong>: Linux (Amazon Linux, Ubuntu, CentOS), Windows (Basics)</li>
-          <li><strong>Scripting</strong>: Bash, Python (Basics for Automation)</li>
-          <li><strong>Soft Skills</strong>: Problem-Solving, Team Collaboration, Fast Learner, Effective Communication</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="glass-card">
-      <h3>CI/CD Pipeline with Jenkins & Docker</h3>
-      <p>Built an end-to-end CI/CD pipeline using Jenkins to automate code pulls from GitHub, build Docker images, push to Docker Hub, and deploy web apps on AWS EC2. Integrated automated testing, reducing deployment time by 40% and enhancing release reliability.</p>
-    </div>
-    <div class="glass-card">
-      <h3>AWS VPC 2-Tier Architecture</h3>
-      <p>Designed a secure VPC with public/private subnets, NAT Gateway, route tables, and security groups, enabling scalable EC2 deployments in a production-grade environment with high availability and fault tolerance.</p>
-    </div>
-    <div class="glass-card">
-      <h3>S3 Static Website Hosting</h3>
-      <p>Deployed a portfolio site on AWS S3 with optimized bucket policies and CloudFront for low-latency delivery, achieving 100% uptime and global accessibility for users.</p>
-    </div>
-    <div class="glass-card">
-      <h3>Monitoring with Prometheus & Grafana</h3>
-      <p>Configured Prometheus to monitor Docker containers and EC2 instances, creating Grafana dashboards for CPU, memory, and network metrics, improving incident response time by 25%.</p>
-    </div>
-    <div class="glass-card">
-      <h3>Terraform Infrastructure Automation</h3>
-      <p>Automated AWS resource provisioning (EC2, S3, IAM, VPC) using modular Terraform scripts, streamlining setup by 30% and ensuring consistent, reproducible environments.</p>
-    </div>
-    <div class="glass-card">
-      <h3>Kubernetes Rollback with Helm</h3>
-      <p>Managed Kubernetes deployments with Helm charts, implementing rollback strategies to ensure zero-downtime updates and robust application resilience.</p>
-    </div>
-    <div class="glass-card">
-      <h3>Bash Automation for System Tasks</h3>
-      <p>Developed Bash scripts to automate system monitoring and log rotation on Linux servers, reducing manual effort by 50% and improving system maintenance efficiency.</p>
-    </div>
-    <div class="glass-card">
-      <h3>S3-Based Static Asset Deployment with Versioning</h3>
-      <p>Created a versioned static asset delivery system using AWS S3, CloudFront, and lifecycle rules, enabling smooth updates and rollbacks for web UI content with minimal downtime.</p>
-    </div>
-  </section>
-
-  <section id="achievements">
-    <h2>Achievements</h2>
-    <div class="glass-card">
-      <ul class="list-disc pl-5">
-        <li>Earned AWS Solutions Architect and DevOps Engineer MicroDegrees (2025), mastering AWS, Jenkins, Docker, and Terraform.</li>
-        <li>Deployed a portfolio site on S3, featured in GitHub portfolio with 100% uptime and global reach.</li>
-        <li>Optimized CI/CD pipelines, reducing deployment cycles by up to 40% across multiple projects.</li>
-        <li>Automated system tasks with Bash scripting, cutting manual maintenance time by 50%.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <div class="glass-card">
-      <ul class="list-disc pl-5">
-        <li>AWS Solutions Architect – MicroDegree, 2025</li>
-        <li>DevOps Engineer – MicroDegree, 2025 (AWS, Jenkins, Docker, Kubernetes, Terraform, Ansible)</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="education">
-    <h2>Education</h2>
-    <div class="glass-card">
-      <p><strong>B.E. in Electronics & Communication</strong><br>N.M.A.M Institute of Technology, Nitte – 2024</p>
-      <p><strong>Diploma in Electronics & Communication</strong><br>N.R.A.M Polytechnic, Nitte – 2021</p>
-    </div>
-  </section>
-
-  <button id="back-to-top" onclick="scrollToTop()">↑</button>
+  <footer>
+    © 2025 Sujan S — Crafted with care and passion
+  </footer>
 
   <script src="script.js"></script>
 </body>
-
 </html>
