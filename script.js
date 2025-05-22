@@ -1,15 +1,25 @@
-// Show back to top button after scrolling down 300px
-const backToTopBtn = document.getElementById('back-to-top');
+// scripts.js
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    backToTopBtn.style.display = 'block';
-  } else {
-    backToTopBtn.style.display = 'none';
-  }
-});
+document.addEventListener("DOMContentLoaded", () => {
+  // Fade in cards one by one on scroll
+  const cards = document.querySelectorAll(".glassy-card");
 
-// Smooth scroll back to top
-backToTopBtn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  const revealOnScroll = () => {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    cards.forEach(card => {
+      const cardTop = card.getBoundingClientRect().top;
+
+      if (cardTop < triggerBottom) {
+        card.style.opacity = 1;
+        card.style.transform = "translateY(0)";
+      } else {
+        card.style.opacity = 0;
+        card.style.transform = "translateY(40px)";
+      }
+    });
+  };
+
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll(); // Initial call on load
 });
