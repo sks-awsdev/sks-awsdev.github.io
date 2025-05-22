@@ -1,43 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sujan S — Modern Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Portfolio of Sujan K S, AWS & DevOps Engineer showcasing skills, projects, and certifications." />
+  <title>Sujan K S - AWS & DevOps Engineer</title>
+  <link rel="icon" href="favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <div class="background-gradient"></div>
 
-  <div class="glass-container">
-    <h1>Sujan S</h1>
-    <h2>Passionate AWS DevOps Trainee & Developer</h2>
-    <button class="btn-primary" id="helloBtn">Say Hello 👋</button>
+  <header>
+    <div class="header-content glass-card">
+      <h1>SUJANKS</h1>
+      <p class="role">Dynamic AWS & DevOps Engineer</p>
+      <p class="tagline">
+        Hands-on expertise in CI/CD pipelines, cloud infrastructure, and automation solutions.
+      </p>
 
-    <section class="projects" aria-label="Projects">
-      <article class="project-card" tabindex="0">
-        <h3 class="project-title">AWS Automation Toolkit</h3>
-        <p class="project-desc">Automated AWS deployments using CloudFormation and Terraform with seamless CI/CD integration.</p>
-      </article>
-      <article class="project-card" tabindex="0">
-        <h3 class="project-title">Containerized Microservices</h3>
-        <p class="project-desc">Built scalable microservices with Docker & Kubernetes, focusing on high availability and resilience.</p>
-      </article>
-      <article class="project-card" tabindex="0">
-        <h3 class="project-title">Monitoring Dashboard</h3>
-        <p class="project-desc">Developed real-time monitoring dashboard with Prometheus and Grafana for system health tracking.</p>
-      </article>
-      <article class="project-card" tabindex="0">
-        <h3 class="project-title">Infrastructure as Code</h3>
-        <p class="project-desc">Implemented IaC strategies to manage cloud infrastructure reliably and repeatably using Terraform.</p>
-      </article>
+      <div class="contact-info">
+        <a href="tel:+919632934190" aria-label="Phone">+91 9632934190</a>
+        <a href="mailto:sks.awsdev@gmail.com" aria-label="Email">sks.awsdev@gmail.com</a>
+      </div>
+
+      <div class="social-links">
+        <a href="https://sks-awsdev.github.io" target="_blank" aria-label="Portfolio">Portfolio</a>
+        <a href="https://linkedin.com/in/isks" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+        <a href="https://github.com/sks-awsdev" target="_blank" aria-label="GitHub">GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <ul class="nav-links glass-card">
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="summary" class="section glass-card">
+      <h2>About Me</h2>
+      <p>
+        Dynamic AWS & DevOps Engineer with hands-on expertise in designing CI/CD pipelines, cloud infrastructure, and automation
+        solutions. Skilled in Jenkins, Docker, Terraform, and AWS services (EC2, S3, VPC, CloudFront), delivering scalable, secure
+        architectures in real-world projects. Certified AWS Solutions Architect and DevOps Engineer (2025). Adept at problem-solving
+        and adapting to complex challenges, passionate about optimizing workflows, reducing costs, and driving cloud-native innovation.
+        Committed to delivering immediate value to innovative DevOps teams through modern practices and collaboration.
+      </p>
     </section>
-  </div>
 
-  <footer>
-    © 2025 Sujan S — Crafted with care and passion
-  </footer>
+    <section id="skills" class="section glass-card">
+      <h2>Technical Skills</h2>
+      <ul>
+        <li><strong>Cloud Platforms:</strong> AWS (EC2, S3, IAM, VPC, RDS, ELB, Auto Scaling, CloudWatch, CloudFront, Route 53, Lambda)</li>
+        <li><strong>DevOps Tools:</strong> Jenkins (Freestyle, Pipelines), Git, GitHub, GitLab, Docker, Terraform, Ansible (Basics), Kubernetes (Intro), Helm</li>
+        <li><strong>CI/CD:</strong> Jenkins Pipelines, GitHub Webhooks, GitLab CI (Intro), Shell Scripting, YAML, Docker Hub Integration</li>
+        <li><strong>Infrastructure as Code:</strong> Terraform (Modules, State Management), AWS CloudFormation (Basics)</li>
+        <li><strong>Monitoring & Logging:</strong> Prometheus, Grafana, AWS CloudWatch, ELK Stack (Intro)</li>
+        <li><strong>Operating Systems:</strong> Linux (Amazon Linux, Ubuntu, CentOS), Windows (Basics)</li>
+        <li><strong>Scripting:</strong> Bash, Python (Basics for Automation)</li>
+        <li><strong>Soft Skills:</strong> Problem-Solving, Team Collaboration, Fast Learner, Effective Communication</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="section glass-card">
+      <h2>Hands-on Projects</h2>
+      <ul>
+        <li><strong>CI/CD Pipeline with Jenkins & Docker:</strong> Built an end-to-end CI/CD pipeline using Jenkins to automate code pulls from GitHub, build Docker images, push to Docker Hub, and deploy web apps on AWS EC2. Integrated automated testing, reducing deployment time by 40% and enhancing release reliability.</li>
+        <li><strong>AWS VPC 2-Tier Architecture:</strong> Designed a secure VPC with public/private subnets, NAT Gateway, route tables, and security groups, enabling scalable EC2 deployments in a production-grade environment with high availability and fault tolerance.</li>
+        <li><strong>S3 Static Website Hosting:</strong> Deployed a portfolio site on AWS S3 with optimized bucket policies and CloudFront for low latency delivery, achieving 100% uptime and global accessibility for users.</li>
+        <li><strong>Monitoring with Prometheus & Grafana:</strong> Configured Prometheus to monitor Docker containers and EC2 instances, creating Grafana dashboards for CPU, memory, and network metrics, improving incident response time by 25%.</li>
+        <li><strong>Terraform Infrastructure Automation:</strong> Automated AWS resource provisioning (EC2, S3, IAM, VPC) using modular Terraform scripts, streamlining setup by 30% and ensuring consistent, reproducible environments.</li>
+        <li><strong>Kubernetes Rollback with Helm:</strong> Managed Kubernetes deployments with Helm charts, implementing rollback strategies to ensure zero-downtime updates and robust application resilience.</li>
+        <li><strong>Bash Automation for System Tasks:</strong> Developed Bash scripts to automate system monitoring and log rotation on Linux servers, reducing manual effort by 50% and improving system maintenance efficiency.</li>
+      </ul>
+    </section>
+
+    <section id="achievements" class="section glass-card">
+      <h2>Achievements</h2>
+      <ul>
+        <li>Earned AWS Solutions Architect and DevOps Engineer MicroDegrees (2025), mastering AWS, Jenkins, Docker, and Terraform.</li>
+        <li>Deployed a portfolio site on S3, featured in GitHub portfolio with 100% uptime and global reach.</li>
+        <li>Optimized CI/CD pipelines, reducing deployment cycles by up to 40% across multiple projects.</li>
+        <li>Automated system tasks with Bash scripting, cutting manual maintenance time by 50%.</li>
+      </ul>
+    </section>
+
+    <section id="certifications" class="section glass-card">
+      <h2>Certifications</h2>
+      <ul>
+        <li>AWS Solutions Architect – MicroDegree, 2025</li>
+        <li>DevOps Engineer – MicroDegree, 2025 (AWS, Jenkins, Docker, Kubernetes, Terraform, Ansible)</li>
+      </ul>
+    </section>
+
+    <section id="education" class="section glass-card">
+      <h2>Education</h2>
+      <p><strong>B.E. in Electronics & Communication</strong><br />N.M.A.M Institute of Technology, Nitte – 2024</p>
+      <p><strong>Diploma in Electronics & Communication</strong><br />N.R.A.M Polytechnic, Nitte – 2021</p>
+    </section>
+  </main>
+
+  <button id="back-to-top" aria-label="Back to top">↑</button>
 
   <script src="script.js"></script>
 </body>
+
 </html>
