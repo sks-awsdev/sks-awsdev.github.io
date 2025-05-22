@@ -8,29 +8,26 @@
 body {
   font-family: 'Poppins', sans-serif;
   color: white;
-  background: linear-gradient(45deg, #1E3A8A, #000000, #1E3A8A), url('/background.jpg');
-  background-size: 200% 200%, cover;
-  background-position: 0% 50%, center;
+  background: url('/background.jpg');
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  background-attachment: scroll, fixed;
-  animation: gradientShift 6s ease infinite;
+  background-attachment: fixed;
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
 }
 
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
+/* Dark overlay for text readability */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
 }
 
 #particles {
@@ -56,7 +53,6 @@ body {
     transform: translateY(0);
     opacity: 0.5;
   }
-
   50% {
     transform: translateY(-20px);
     opacity: 0.8;
@@ -96,7 +92,6 @@ header p {
   from {
     width: 0;
   }
-
   to {
     width: 100%;
   }
@@ -107,7 +102,6 @@ header p {
   to {
     border-color: transparent;
   }
-
   50% {
     border-color: white;
   }
@@ -119,15 +113,15 @@ header p {
 }
 
 .contact-links a {
-  color: #00DDEB;
+  color: #4A90E2;
   text-decoration: none;
-  margin: 0 10px;
+  margin: 0 15px;
   font-weight: 600;
   transition: color 0.3s ease;
 }
 
 .contact-links a:hover {
-  color: #4A90E2;
+  color: #2A6DB0;
 }
 
 nav {
@@ -151,7 +145,7 @@ nav a {
 }
 
 nav a:hover {
-  color: #00DDEB;
+  color: #4A90E2;
   transform: scale(1.05);
 }
 
@@ -160,7 +154,7 @@ nav a::after {
   position: absolute;
   width: 0;
   height: 2px;
-  background: #00DDEB;
+  background: #4A90E2;
   left: 0;
   bottom: -5px;
   transition: width 0.3s ease;
@@ -172,7 +166,7 @@ nav a:hover::after {
 
 .ripple {
   position: absolute;
-  background: rgba(0, 221, 235, 0.3);
+  background: rgba(74, 144, 226, 0.3);
   border-radius: 50%;
   transform: scale(0);
   animation: ripple 0.6s linear;
@@ -197,8 +191,8 @@ section {
 section h2 {
   font-size: 2.5rem;
   margin-bottom: 30px;
-  color: #00DDEB;
-  text-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
+  color: #4A90E2;
+  text-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
 }
 
 section p,
@@ -225,13 +219,13 @@ ul {
 .glass-card:hover,
 .glass-card:active {
   transform: scale(1.03);
-  box-shadow: 0 0 20px rgba(0, 221, 235, 0.5);
+  box-shadow: 0 0 20px rgba(74, 144, 226, 0.5);
 }
 
 .glass-card h3 {
   font-size: 1.5rem;
   margin-bottom: 15px;
-  color: #00DDEB;
+  color: #4A90E2;
 }
 
 .skills-grid {
@@ -240,22 +234,11 @@ ul {
   gap: 20px;
 }
 
-.animate-on-scroll {
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-.animate-on-scroll.visible {
-  opacity: 1;
-  animation: float 15s infinite ease-in-out;
-  animation-delay: 0s;
-}
-
 #back-to-top {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  background: #00DDEB;
+  background: #4A90E2;
   color: white;
   border: none;
   padding: 15px;
@@ -267,7 +250,7 @@ ul {
 }
 
 #back-to-top:hover {
-  background: #4A90E2;
+  background: #2A6DB0;
 }
 
 @media (max-width: 768px) {
