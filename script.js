@@ -20,7 +20,7 @@ document.querySelectorAll('nav a').forEach(link => {
     ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
     ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
     this.appendChild(ripple);
-    setTimeout(() => ripple.remove(), 600); // Remove ripple after animation
+    setTimeout(() => ripple.remove(), 600);
   });
 });
 
@@ -36,18 +36,3 @@ window.onscroll = function () {
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
-// Intersection Observer for animating <li> elements on scroll
-const listItems = document.querySelectorAll('.animate-on-scroll');
-const observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target); // Stop observing once animated
-    }
-  });
-}, { threshold: 0.1 });
-
-listItems.forEach(item => {
-  observer.observe(item);
-});
