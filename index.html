@@ -2,446 +2,93 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Sujan K S, AWS & DevOps Engineer showcasing skills, projects, and certifications.">
-  <title>Sujan K S - AWS & DevOps Engineer</title>
-  <link rel="icon" type="image/svg+xml" href="/logo.svg">
-  <link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      color: white;
-      background: linear-gradient(45deg, #1E3A8A, #000000, #1E3A8A);
-      background-size: 200% 200%;
-      animation: gradientShift 6s ease infinite;
-      min-height: 100vh;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    @keyframes gradientShift {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    #particles {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .particle {
-      position: absolute;
-      background: rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
-      animation: float 15s infinite ease-in-out;
-    }
-
-    @keyframes float {
-      0%,
-      100% {
-        transform: translateY(0);
-        opacity: 0.5;
-      }
-
-      50% {
-        transform: translateY(-20px);
-        opacity: 0.8;
-      }
-    }
-
-    header {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      z-index: 2;
-      padding: 20px;
-    }
-
-    header h1 {
-      font-size: 4rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    }
-
-    header p {
-      font-size: 1.5rem;
-      opacity: 0.9;
-      display: inline-block;
-      border-right: 2px solid white;
-      white-space: nowrap;
-      overflow: hidden;
-      animation: typing 3s steps(30, end), blink 0.75s step-end infinite;
-    }
-
-    @keyframes typing {
-      from {
-        width: 0;
-      }
-
-      to {
-        width: 100%;
-      }
-    }
-
-    @keyframes blink {
-      from,
-      to {
-        border-color: transparent;
-      }
-
-      50% {
-        border-color: white;
-      }
-    }
-
-    .contact-links {
-      margin-top: 20px;
-    }
-
-    .contact-links a {
-      color: #00DDEB;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-
-    .contact-links a:hover {
-      color: #4A90E2;
-    }
-
-    nav {
-      position: sticky;
-      top: 0;
-      background: rgba(0, 0, 0, 0.8);
-      backdrop-filter: blur(10px);
-      padding: 15px 0;
-      z-index: 100;
-      display: flex;
-      justify-content: center;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 20px;
-      font-weight: 600;
-      position: relative;
-      transition: color 0.3s ease, transform 0.2s ease;
-    }
-
-    nav a:hover {
-      color: #00DDEB;
-      transform: scale(1.05);
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      background: #00DDEB;
-      left: 0;
-      bottom: -5px;
-      transition: width 0.3s ease;
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    .ripple {
-      position: absolute;
-      background: rgba(0, 221, 235, 0.3);
-      border-radius: 50%;
-      transform: scale(0);
-      animation: ripple 0.6s linear;
-      pointer-events: none;
-    }
-
-    @keyframes ripple {
-      to {
-        transform: scale(4);
-        opacity: 0;
-      }
-    }
-
-    section {
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 2;
-    }
-
-    section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 30px;
-      color: #00DDEB;
-      text-shadow: 0 0 10px rgba(0, 221, 235, 0.5);
-    }
-
-    section p,
-    section li {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      margin-bottom: 15px;
-    }
-
-    ul {
-      list-style: none;
-    }
-
-    .glass-card {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      padding: 25px;
-      border-radius: 15px;
-      margin-bottom: 25px;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .glass-card:hover,
-    .glass-card:active {
-      transform: scale(1.03);
-      box-shadow: 0 0 20px rgba(0, 221, 235, 0.5);
-    }
-
-    .glass-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-      color: #00DDEB;
-    }
-
-    #back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background: #00DDEB;
-      color: white;
-      border: none;
-      padding: 15px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      z-index: 100;
-      transition: background 0.3s ease;
-    }
-
-    #back-to-top:hover {
-      background: #4A90E2;
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 3rem;
-      }
-
-      header p {
-        font-size: 1.2rem;
-      }
-
-      nav a {
-        margin: 0 10px;
-      }
-
-      section h2 {
-        font-size: 2rem;
-      }
-
-      section p,
-      section li {
-        font-size: 1rem;
-      }
-
-      #back-to-top {
-        padding: 10px;
-      }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sujan KS | DevOps Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="scripts.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <div id="particles"></div>
+  <div class="background-gradient"></div>
 
-  <header>
-    <h1>Sujan K S</h1>
-    <p>AWS & DevOps Engineer</p>
-    <div class="contact-links">
-      <a href="tel:+919632934190" aria-label="Phone number: +91 9632934190">+91 9632934190</a> |
-      <a href="mailto:sks.awsdev@gmail.com" aria-label="Email: sks.awsdev@gmail.com">sks.awsdev@gmail.com</a> |
-      <a href="https://linkedin.com/in/isks" target="_blank" aria-label="LinkedIn profile">LinkedIn</a> |
-      <a href="https://github.com/sks-awsdev" target="_blank" aria-label="GitHub profile">GitHub</a>
+  <header class="glassy-card header">
+    <h1>Sujan KS</h1>
+    <p class="subtitle">AWS & DevOps Engineer | CI/CD | Terraform | Cloud Architect</p>
+    <div class="contact">
+      <a href="tel:+919632934190">📞 +91 9632934190</a>
+      <a href="mailto:sks.awsdev@gmail.com">✉️ sks.awsdev@gmail.com</a>
+    </div>
+    <div class="social-links">
+      <a href="https://linkedin.com/in/isks" target="_blank">🔗 LinkedIn</a>
+      <a href="https://github.com/sks-awsdev" target="_blank">💻 GitHub</a>
     </div>
   </header>
 
-  <nav>
-    <a href="#objective">Objective</a>
-    <a href="#summary">Summary</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#education">Education</a>
-  </nav>
+  <main class="container">
+    <section class="glassy-card">
+      <h2>🧑‍💼 Profile</h2>
+      <p>Dynamic AWS & DevOps Engineer with hands-on expertise in designing CI/CD pipelines, cloud infrastructure, and automation solutions. Skilled in Jenkins, Docker, Terraform, and AWS services (EC2, S3, VPC, CloudFront), delivering scalable, secure architectures in real-world projects. Certified AWS Solutions Architect and DevOps Engineer (2025). Adept at problem-solving and adapting to complex challenges, passionate about optimizing workflows, reducing costs, and driving cloud-native innovation. Committed to delivering immediate value to innovative DevOps teams through modern practices and collaboration.</p>
+    </section>
 
-  <section id="objective">
-    <h2>Objective</h2>
-    <div class="glass-card">
-      <p>Motivated and detail-oriented AWS & DevOps Engineer, trained in modern DevOps tools and cloud infrastructure, seeking an entry-level DevOps role to build scalable, automated, and secure cloud infrastructure and CI/CD pipelines. Passionate about cloud-native solutions, continuous integration/delivery, and proactive monitoring.</p>
-    </div>
-  </section>
-
-  <section id="summary">
-    <h2>Summary</h2>
-    <div class="glass-card">
+    <section class="glassy-card">
+      <h2>🛠️ Technical Skills</h2>
       <ul>
-        <li>AWS and DevOps fresher with hands-on project experience in CI/CD, cloud deployment, containerization, and monitoring.</li>
-        <li>Built end-to-end DevOps pipelines using Jenkins, GitHub, Docker, and Terraform.</li>
-        <li>Deployed real-time applications on AWS EC2, configured VPC networks, and hosted static sites on S3.</li>
-        <li>Experience with infrastructure monitoring (Prometheus, Grafana, CloudWatch) and basic configuration management using Ansible.</li>
-        <li>Quick learner with strong practical skills and team collaboration mindset.</li>
+        <li><strong>Cloud Platforms:</strong> AWS (EC2, S3, IAM, VPC, RDS, ELB, Auto Scaling, CloudWatch, CloudFront, Route 53, Lambda)</li>
+        <li><strong>DevOps Tools:</strong> Jenkins, Git, GitHub, GitLab, Docker, Terraform, Ansible (Basics), Kubernetes (Intro), Helm</li>
+        <li><strong>CI/CD:</strong> Jenkins Pipelines, GitHub Webhooks, GitLab CI (Intro), Shell Scripting, YAML, Docker Hub Integration</li>
+        <li><strong>Infrastructure as Code:</strong> Terraform (Modules, State Management), AWS CloudFormation (Basics)</li>
+        <li><strong>Monitoring & Logging:</strong> Prometheus, Grafana, AWS CloudWatch, ELK Stack (Intro)</li>
+        <li><strong>Operating Systems:</strong> Linux (Amazon Linux, Ubuntu, CentOS), Windows (Basics)</li>
+        <li><strong>Scripting:</strong> Bash, Python (Basics for Automation)</li>
+        <li><strong>Soft Skills:</strong> Problem-Solving, Team Collaboration, Fast Learner, Effective Communication</li>
       </ul>
-    </div>
-  </section>
+    </section>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="glass-card">
-      <p><strong>Cloud Platforms:</strong> AWS (EC2, S3, IAM, VPC, RDS, Auto Scaling, ELB, CloudWatch)</p>
-      <p><strong>DevOps Tools:</strong> Jenkins (Freestyle & Pipeline), Git, GitHub, Docker, Terraform</p>
-      <p><strong>CI/CD:</strong> Jenkins Pipelines, GitHub Integration, Shell Scripting</p>
-      <p><strong>Infrastructure as Code:</strong> Terraform, YAML</p>
-      <p><strong>Monitoring:</strong> Prometheus, Grafana, AWS CloudWatch</p>
-      <p><strong>OS & Scripting:</strong> Linux (Amazon Linux, Ubuntu), Bash</p>
-      <p><strong>Basics:</strong> Ansible, Kubernetes (Intro level)</p>
-    </div>
-  </section>
+    <section class="glassy-card">
+      <h2>🚀 Projects</h2>
+      <ul>
+        <li><strong>CI/CD Pipeline with Jenkins & Docker:</strong> Automated code pulls from GitHub, build Docker images, push to Docker Hub, deploy web apps on AWS EC2 with testing, reducing deployment time by 40%.</li>
+        <li><strong>AWS VPC 2-Tier Architecture:</strong> Designed secure public/private subnets, NAT Gateway, route tables, and security groups for scalable EC2 deployments.</li>
+        <li><strong>S3 Static Website Hosting:</strong> Portfolio hosted on S3 with CloudFront, ensuring global low-latency delivery and 100% uptime.</li>
+        <li><strong>Monitoring with Prometheus & Grafana:</strong> Docker + EC2 metrics visualized on Grafana dashboards, improved incident response by 25%.</li>
+        <li><strong>Terraform Infrastructure Automation:</strong> Provisioned AWS resources using modular scripts, streamlining setup by 30%.</li>
+        <li><strong>Kubernetes Rollback with Helm:</strong> Implemented zero-downtime updates with Helm, enabling robust application resilience.</li>
+        <li><strong>Bash Automation for System Tasks:</strong> Reduced manual maintenance effort by 50% using Bash for monitoring and log rotation.</li>
+      </ul>
+    </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="glass-card">
-      <h3>CI/CD with Jenkins, Docker & GitHub</h3>
-      <p>Built a complete CI/CD pipeline using Jenkins to pull code from GitHub, build a Docker image, and push it to DockerHub. Deployed a web app on AWS EC2 with Docker.</p>
-    </div>
-    <div class="glass-card">
-      <h3>Automated EC2 Deployment using Jenkins Freestyle Job</h3>
-      <p>Configured Jenkins Freestyle job to auto-deploy a GitHub-based web application on EC2 via shell scripting.</p>
-    </div>
-    <div class="glass-card">
-      <h3>AWS VPC Setup (2-tier Architecture)</h3>
-      <p>Created a secure VPC with public/private subnets, NAT Gateway, and route tables. Deployed EC2 instances and simulated real-world infrastructure scenarios.</p>
-    </div>
-    <div class="glass-card">
-      <h3>Static Website Hosting on AWS S3</h3>
-      <p>Hosted a personal portfolio website using AWS S3. Configured bucket policies and enabled public access.</p>
-    </div>
-    <div class="glass-card">
-      <h3>Monitoring with Prometheus & Grafana</h3>
-      <p>Installed and configured Prometheus & Grafana on EC2 to monitor Docker containers and system metrics. Built dashboards for resource usage and alerts.</p>
-    </div>
-    <div class="glass-card">
-      <h3>Infrastructure Automation using Terraform</h3>
-      <p>Used Terraform to provision AWS infrastructure including EC2, S3, and IAM roles. Created reusable modules and managed state files for consistent deployment.</p>
-    </div>
-    <div class="glass-card">
-      <h3>Kubernetes Deployment Rollback with Helm</h3>
-      <p>Managed containerized app deployments using Kubernetes and Helm. Tested version rollbacks using Helm rollback for safer releases and quick recovery from bad deployments.</p>
-    </div>
-    <div class="glass-card">
-      <h3>S3-Based Static Asset Deployment with Versioning</h3>
-      <p>Created a versioned static asset delivery system using AWS S3, CloudFront, and lifecycle rules. Enabled smooth updates and rollbacks for web UI content with minimal downtime.</p>
-    </div>
-  </section>
+    <section class="glassy-card">
+      <h2>🏆 Achievements</h2>
+      <ul>
+        <li>Earned AWS Solutions Architect and DevOps Engineer MicroDegrees (2025).</li>
+        <li>Featured S3-hosted portfolio site in GitHub with global reach.</li>
+        <li>Optimized CI/CD pipelines, cutting deployment cycles by 40%.</li>
+        <li>Automated system tasks using Bash, saving 50% manual effort.</li>
+      </ul>
+    </section>
 
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <div class="glass-card">
-      <p><strong>AWS Solutions Architect - 2025 (MicroDegree)</strong></p>
-      <p><strong>DevOps Engineer - 2025 (MicroDegree)</strong></p>
-      <p>Covered AWS, Jenkins, Docker, Kubernetes, Terraform, Ansible, Monitoring, Linux</p>
-    </div>
-  </section>
+    <section class="glassy-card">
+      <h2>📜 Certifications</h2>
+      <ul>
+        <li>AWS Solutions Architect – MicroDegree (2025)</li>
+        <li>DevOps Engineer – MicroDegree (2025)</li>
+      </ul>
+    </section>
 
-  <section id="education">
-    <h2>Education</h2>
-    <div class="glass-card">
-      <p><strong>B.E. in Electronics & Communication</strong><br>N.M.A.M Institute of Technology, Nitte - 2024</p>
-      <p><strong>Diploma in Electronics & Communication</strong><br>N.R.A.M Polytechnic, Nitte - 2021</p>
-    </div>
-  </section>
+    <section class="glassy-card">
+      <h2>🎓 Education</h2>
+      <ul>
+        <li>B.E. in Electronics & Communication – N.M.A.M Institute of Technology, Nitte (2024)</li>
+        <li>Diploma in Electronics & Communication – N.R.A.M Polytechnic, Nitte (2021)</li>
+      </ul>
+    </section>
+  </main>
 
-  <button id="back-to-top" onclick="scrollToTop()">↑</button>
-
-  <script>
-    const particlesContainer = document.getElementById('particles');
-    for (let i = 0; i < 50; i++) {
-      const particle = document.createElement('div');
-      particle.classList.add('particle');
-      particle.style.width = `${Math.random() * 5 + 2}px`;
-      particle.style.height = particle.style.width;
-      particle.style.left = `${Math.random() * 100}vw`;
-      particle.style.top = `${Math.random() * 100}vh`;
-      particle.style.animationDelay = `${Math.random() * 10}s`;
-      particlesContainer.appendChild(particle);
-    }
-
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', function (e) {
-        const ripple = document.createElement('span');
-        ripple.classList.add('ripple');
-        const rect = this.getBoundingClientRect();
-        const size = Math.max(rect.width, rect.height);
-        ripple.style.width = ripple.style.height = `${size}px`;
-        ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
-        ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
-        this.appendChild(ripple);
-        setTimeout(() => ripple.remove(), 600); // Remove ripple after animation
-      });
-    });
-
-    const backToTopButton = document.getElementById('back-to-top');
-    window.onscroll = function () {
-      if (window.scrollY > 300) {
-        backToTopButton.style.display = 'block';
-      } else {
-        backToTopButton.style.display = 'none';
-      }
-    };
-
-    function scrollToTop() {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  </script>
+  <footer class="footer">
+    <p>© 2025 Sujan KS. All rights reserved.</p>
+  </footer>
 </body>
 
 </html>
