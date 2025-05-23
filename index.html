@@ -437,6 +437,8 @@
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            display: flex; /* Added for flex layout */
+            flex-direction: column; /* Added for column layout */
         }
         
         .project-pill:hover {
@@ -465,6 +467,132 @@
             border-radius: 25px;
             margin-top: 15px;
             border-left: 3px solid var(--electric-blue);
+        }
+
+        /* LLM Feature Button */
+        .llm-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 15px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, var(--light-blue) 0%, var(--electric-blue) 100%);
+            color: var(--white);
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            align-self: flex-start; /* Align button to start */
+        }
+
+        .llm-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.5);
+        }
+
+        .llm-btn i {
+            margin-right: 8px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1001; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+            backdrop-filter: blur(5px);
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--blue) 100%);
+            margin: auto;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid var(--electric-blue);
+            width: 80%;
+            max-width: 700px;
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4);
+            position: relative;
+            animation: fadeInScale 0.3s ease-out;
+            max-height: 90vh; /* Limit height */
+            overflow-y: auto; /* Enable scrolling within modal */
+        }
+
+        .modal-content h3 {
+            color: var(--electric-blue);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .modal-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            white-space: pre-wrap; /* Preserve whitespace and line breaks */
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: flex-end; /* Align buttons to the right */
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .modal-buttons button {
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .modal-buttons .close-button {
+            background: var(--light-blue);
+            color: var(--white);
+        }
+
+        .modal-buttons .close-button:hover {
+            background: var(--electric-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.5);
+        }
+
+        .modal-buttons .summarize-button {
+            background: var(--electric-blue);
+            color: var(--white);
+        }
+
+        .modal-buttons .summarize-button:hover {
+            background: var(--light-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.5);
+        }
+
+        .loading-indicator {
+            text-align: center;
+            color: var(--electric-blue);
+            font-style: italic;
+            margin-top: 15px;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
         
         /* Contact Section */
@@ -701,7 +829,6 @@
     </style>
 </head>
 <body>
-    <!-- Animated Background Elements -->
     <div class="bg-elements">
         <div class="bg-circle"></div>
         <div class="bg-circle"></div>
@@ -709,7 +836,6 @@
         <div class="bg-circle"></div>
     </div>
     
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="menu-toggle">
@@ -724,7 +850,6 @@
         </div>
     </nav>
     
-    <!-- Landing Page -->
     <section class="landing">
         <div class="landing-content">
             <h1 class="hero-name">SUJAN K S</h1>
@@ -749,7 +874,7 @@
                 <a href="https://sks-awsdev.github.io" target="_blank" class="social-btn">
                     <i class="fas fa-globe"></i> Portfolio
                 </a>
-                <a href="#" class="social-btn" id="resumeBtn">
+                <a href="./Sujan_ks_aws_dev_resume.pdf" target="_blank" class="social-btn" id="resumeBtn">
                     <i class="fas fa-file-alt"></i> Resume
                 </a>
             </div>
@@ -759,9 +884,7 @@
         </div>
     </section>
     
-    <!-- Main Content -->
     <main class="container">
-        <!-- About Section -->
         <section id="about" class="content-pill">
             <div class="pill-header">
                 <h2>Professional Summary</h2>
@@ -771,31 +894,26 @@
             </div>
         </section>
         
-        <!-- Skills Section -->
         <section id="skills" class="content-pill">
             <div class="pill-header">
                 <h2>Technical Skills</h2>
             </div>
             <div class="pill-content">
                 <div class="skills-grid" id="skillsContainer">
-                    <!-- Skills will be populated by JavaScript -->
-                </div>
+                    </div>
             </div>
         </section>
         
-        <!-- Projects Section -->
         <section id="projects" class="content-pill">
             <div class="pill-header">
                 <h2>Projects & Experience</h2>
             </div>
             <div class="pill-content">
                 <div class="projects-container" id="projectsContainer">
-                    <!-- Projects will be populated by JavaScript -->
-                </div>
+                    </div>
             </div>
         </section>
         
-        <!-- Contact Section -->
         <section id="contact" class="content-pill">
             <div class="pill-header">
                 <h2>Contact Me</h2>
@@ -804,7 +922,7 @@
                 <div class="contact-info">
                     <p><i class="fas fa-phone"></i> +91 9632934190</p>
                     <p><i class="fas fa-envelope"></i> sks.awsdev@gmail.com</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Bangalore, India</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Udupi, India</p>
                 </div>
                 <div class="contact-links">
                     <a href="https://linkedin.com/in/isks" target="_blank" class="contact-btn">
@@ -820,6 +938,18 @@
             </div>
         </section>
     </main>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <h3 id="modalProjectTitle"></h3>
+            <p id="modalProjectDescription"></p>
+            <div class="modal-buttons">
+                <button class="summarize-button" id="summarizeBtn">✨ Summarize</button>
+                <button class="close-button" id="closeModalBtn">Close</button>
+            </div>
+            <div id="loadingIndicator" class="loading-indicator" style="display: none;">Generating...</div>
+        </div>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -982,6 +1112,15 @@
             ];
             
             const projectsContainer = document.getElementById('projectsContainer');
+            const projectModal = document.getElementById('projectModal');
+            const modalProjectTitle = document.getElementById('modalProjectTitle');
+            const modalProjectDescription = document.getElementById('modalProjectDescription');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const summarizeBtn = document.getElementById('summarizeBtn');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+
+            let currentProjectDescription = ""; // To store the full expanded text for summarization
+
             projectsData.forEach(project => {
                 const projectPill = document.createElement('div');
                 projectPill.className = 'project-pill';
@@ -1001,6 +1140,53 @@
                     impact.textContent = project.impact;
                     projectPill.appendChild(impact);
                 }
+
+                // Add the LLM-powered expand button
+                const expandBtn = document.createElement('button');
+                expandBtn.className = 'llm-btn';
+                expandBtn.innerHTML = '<i class="fas fa-magic"></i> ✨ Elaborate';
+                expandBtn.addEventListener('click', async () => {
+                    modalProjectTitle.textContent = project.title;
+                    modalProjectDescription.textContent = ''; // Clear previous content
+                    loadingIndicator.style.display = 'block'; // Show loading
+                    projectModal.style.display = 'flex'; // Show modal
+
+                    const prompt = `Elaborate on the following project in detail, focusing on technical aspects, challenges, and solutions: '${project.title} - ${project.description}'. Provide a comprehensive explanation suitable for a technical portfolio.`;
+                    
+                    try {
+                        const apiKey = ""; // Leave as empty string for Canvas environment
+                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                        const payload = {
+                            contents: [{ role: "user", parts: [{ text: prompt }] }]
+                        };
+
+                        const response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+                        
+                        const result = await response.json();
+                        loadingIndicator.style.display = 'none'; // Hide loading
+
+                        if (result.candidates && result.candidates.length > 0 &&
+                            result.candidates[0].content && result.candidates[0].content.parts &&
+                            result.candidates[0].content.parts.length > 0) {
+                            currentProjectDescription = result.candidates[0].content.parts[0].text;
+                            modalProjectDescription.textContent = currentProjectDescription;
+                            summarizeBtn.style.display = 'inline-block'; // Show summarize button
+                        } else {
+                            modalProjectDescription.textContent = "Failed to generate detailed description. Please try again.";
+                            summarizeBtn.style.display = 'none';
+                        }
+                    } catch (error) {
+                        console.error("Error calling Gemini API:", error);
+                        loadingIndicator.style.display = 'none';
+                        modalProjectDescription.textContent = "An error occurred while fetching the description. Please try again.";
+                        summarizeBtn.style.display = 'none';
+                    }
+                });
+                projectPill.appendChild(expandBtn);
                 
                 projectsContainer.appendChild(projectPill);
             });
@@ -1018,9 +1204,69 @@
             
             // Resume button functionality
             document.getElementById('resumeBtn').addEventListener('click', function(e) {
-                e.preventDefault();
-                alert('Resume download functionality would be implemented here');
-                // In a real implementation, this would link to your resume PDF
+                // The href attribute is set to "./Sujan_ks_aws_dev_resume.pdf"
+                // This means clicking the button will directly open or download the PDF.
+                // No JavaScript alert is needed here.
+            });
+
+            // Modal close functionality
+            closeModalBtn.addEventListener('click', () => {
+                projectModal.style.display = 'none';
+                modalProjectDescription.textContent = ''; // Clear content on close
+                summarizeBtn.style.display = 'none'; // Hide summarize button
+                currentProjectDescription = ""; // Clear stored description
+            });
+
+            // Summarize button functionality
+            summarizeBtn.addEventListener('click', async () => {
+                if (currentProjectDescription) {
+                    modalProjectDescription.textContent = ''; // Clear current content
+                    loadingIndicator.style.display = 'block'; // Show loading
+                    summarizeBtn.style.display = 'none'; // Hide summarize button during summarization
+
+                    const prompt = `Summarize the following project description concisely: '${currentProjectDescription}'`;
+
+                    try {
+                        const apiKey = ""; 
+                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                        const payload = {
+                            contents: [{ role: "user", parts: [{ text: prompt }] }]
+                        };
+
+                        const response = await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(payload)
+                        });
+                        
+                        const result = await response.json();
+                        loadingIndicator.style.display = 'none'; // Hide loading
+
+                        if (result.candidates && result.candidates.length > 0 &&
+                            result.candidates[0].content && result.candidates[0].content.parts &&
+                            result.candidates[0].content.parts.length > 0) {
+                            currentProjectDescription = result.candidates[0].content.parts[0].text; // Update stored description to the summary
+                            modalProjectDescription.textContent = currentProjectDescription;
+                            // The summarize button will remain hidden until a new expansion is triggered
+                        } else {
+                            modalProjectDescription.textContent = "Failed to summarize description. Please try again.";
+                        }
+                    } catch (error) {
+                        console.error("Error calling Gemini API for summarization:", error);
+                        loadingIndicator.style.display = 'none';
+                        modalProjectDescription.textContent = "An error occurred while summarizing. Please try again.";
+                    }
+                }
+            });
+
+            // Close modal when clicking outside of it
+            window.addEventListener('click', (event) => {
+                if (event.target == projectModal) {
+                    projectModal.style.display = 'none';
+                    modalProjectDescription.textContent = '';
+                    summarizeBtn.style.display = 'none';
+                    currentProjectDescription = "";
+                }
             });
         });
     </script>
