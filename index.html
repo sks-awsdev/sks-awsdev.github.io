@@ -437,8 +437,7 @@
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
-            display: flex; /* Added for flex layout */
-            flex-direction: column; /* Added for column layout */
+            /* Removed display: flex and flex-direction: column for LLM button */
         }
         
         .project-pill:hover {
@@ -469,131 +468,8 @@
             border-left: 3px solid var(--electric-blue);
         }
 
-        /* LLM Feature Button */
-        .llm-btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 8px 15px;
-            border-radius: 25px;
-            background: linear-gradient(135deg, var(--light-blue) 0%, var(--electric-blue) 100%);
-            color: var(--white);
-            font-weight: 600;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 15px;
-            align-self: flex-start; /* Align button to start */
-        }
-
-        .llm-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.5);
-        }
-
-        .llm-btn i {
-            margin-right: 8px;
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1001; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
-            backdrop-filter: blur(5px);
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .modal-content {
-            background: linear-gradient(135deg, var(--dark-blue) 0%, var(--blue) 100%);
-            margin: auto;
-            padding: 30px;
-            border-radius: 20px;
-            border: 1px solid var(--electric-blue);
-            width: 80%;
-            max-width: 700px;
-            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4);
-            position: relative;
-            animation: fadeInScale 0.3s ease-out;
-            max-height: 90vh; /* Limit height */
-            overflow-y: auto; /* Enable scrolling within modal */
-        }
-
-        .modal-content h3 {
-            color: var(--electric-blue);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            text-align: center;
-        }
-
-        .modal-content p {
-            color: var(--gray);
-            margin-bottom: 20px;
-            white-space: pre-wrap; /* Preserve whitespace and line breaks */
-        }
-
-        .modal-buttons {
-            display: flex;
-            justify-content: flex-end; /* Align buttons to the right */
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .modal-buttons button {
-            padding: 10px 20px;
-            border-radius: 25px;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .modal-buttons .close-button {
-            background: var(--light-blue);
-            color: var(--white);
-        }
-
-        .modal-buttons .close-button:hover {
-            background: var(--electric-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.5);
-        }
-
-        .modal-buttons .summarize-button {
-            background: var(--electric-blue);
-            color: var(--white);
-        }
-
-        .modal-buttons .summarize-button:hover {
-            background: var(--light-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.5);
-        }
-
-        .loading-indicator {
-            text-align: center;
-            color: var(--electric-blue);
-            font-style: italic;
-            margin-top: 15px;
-        }
-
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
+        /* Removed LLM Feature Button styles */
+        /* Removed Modal Styles */
         
         /* Contact Section */
         .contact-info {
@@ -939,18 +815,6 @@
         </section>
     </main>
 
-    <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <h3 id="modalProjectTitle"></h3>
-            <p id="modalProjectDescription"></p>
-            <div class="modal-buttons">
-                <button class="summarize-button" id="summarizeBtn">✨ Summarize</button>
-                <button class="close-button" id="closeModalBtn">Close</button>
-            </div>
-            <div id="loadingIndicator" class="loading-indicator" style="display: none;">Generating...</div>
-        </div>
-    </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Mobile menu toggle
@@ -1112,14 +976,6 @@
             ];
             
             const projectsContainer = document.getElementById('projectsContainer');
-            const projectModal = document.getElementById('projectModal');
-            const modalProjectTitle = document.getElementById('modalProjectTitle');
-            const modalProjectDescription = document.getElementById('modalProjectDescription');
-            const closeModalBtn = document.getElementById('closeModalBtn');
-            const summarizeBtn = document.getElementById('summarizeBtn');
-            const loadingIndicator = document.getElementById('loadingIndicator');
-
-            let currentProjectDescription = ""; // To store the full expanded text for summarization
 
             projectsData.forEach(project => {
                 const projectPill = document.createElement('div');
@@ -1140,53 +996,6 @@
                     impact.textContent = project.impact;
                     projectPill.appendChild(impact);
                 }
-
-                // Add the LLM-powered expand button
-                const expandBtn = document.createElement('button');
-                expandBtn.className = 'llm-btn';
-                expandBtn.innerHTML = '<i class="fas fa-magic"></i> ✨ Elaborate';
-                expandBtn.addEventListener('click', async () => {
-                    modalProjectTitle.textContent = project.title;
-                    modalProjectDescription.textContent = ''; // Clear previous content
-                    loadingIndicator.style.display = 'block'; // Show loading
-                    projectModal.style.display = 'flex'; // Show modal
-
-                    const prompt = `Elaborate on the following project in detail, focusing on technical aspects, challenges, and solutions: '${project.title} - ${project.description}'. Provide a comprehensive explanation suitable for a technical portfolio.`;
-                    
-                    try {
-                        const apiKey = ""; // Leave as empty string for Canvas environment
-                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-                        const payload = {
-                            contents: [{ role: "user", parts: [{ text: prompt }] }]
-                        };
-
-                        const response = await fetch(apiUrl, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(payload)
-                        });
-                        
-                        const result = await response.json();
-                        loadingIndicator.style.display = 'none'; // Hide loading
-
-                        if (result.candidates && result.candidates.length > 0 &&
-                            result.candidates[0].content && result.candidates[0].content.parts &&
-                            result.candidates[0].content.parts.length > 0) {
-                            currentProjectDescription = result.candidates[0].content.parts[0].text;
-                            modalProjectDescription.textContent = currentProjectDescription;
-                            summarizeBtn.style.display = 'inline-block'; // Show summarize button
-                        } else {
-                            modalProjectDescription.textContent = "Failed to generate detailed description. Please try again.";
-                            summarizeBtn.style.display = 'none';
-                        }
-                    } catch (error) {
-                        console.error("Error calling Gemini API:", error);
-                        loadingIndicator.style.display = 'none';
-                        modalProjectDescription.textContent = "An error occurred while fetching the description. Please try again.";
-                        summarizeBtn.style.display = 'none';
-                    }
-                });
-                projectPill.appendChild(expandBtn);
                 
                 projectsContainer.appendChild(projectPill);
             });
@@ -1208,67 +1017,8 @@
                 // This means clicking the button will directly open or download the PDF.
                 // No JavaScript alert is needed here.
             });
-
-            // Modal close functionality
-            closeModalBtn.addEventListener('click', () => {
-                projectModal.style.display = 'none';
-                modalProjectDescription.textContent = ''; // Clear content on close
-                summarizeBtn.style.display = 'none'; // Hide summarize button
-                currentProjectDescription = ""; // Clear stored description
-            });
-
-            // Summarize button functionality
-            summarizeBtn.addEventListener('click', async () => {
-                if (currentProjectDescription) {
-                    modalProjectDescription.textContent = ''; // Clear current content
-                    loadingIndicator.style.display = 'block'; // Show loading
-                    summarizeBtn.style.display = 'none'; // Hide summarize button during summarization
-
-                    const prompt = `Summarize the following project description concisely: '${currentProjectDescription}'`;
-
-                    try {
-                        const apiKey = ""; 
-                        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-                        const payload = {
-                            contents: [{ role: "user", parts: [{ text: prompt }] }]
-                        };
-
-                        const response = await fetch(apiUrl, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(payload)
-                        });
-                        
-                        const result = await response.json();
-                        loadingIndicator.style.display = 'none'; // Hide loading
-
-                        if (result.candidates && result.candidates.length > 0 &&
-                            result.candidates[0].content && result.candidates[0].content.parts &&
-                            result.candidates[0].content.parts.length > 0) {
-                            currentProjectDescription = result.candidates[0].content.parts[0].text; // Update stored description to the summary
-                            modalProjectDescription.textContent = currentProjectDescription;
-                            // The summarize button will remain hidden until a new expansion is triggered
-                        } else {
-                            modalProjectDescription.textContent = "Failed to summarize description. Please try again.";
-                        }
-                    } catch (error) {
-                        console.error("Error calling Gemini API for summarization:", error);
-                        loadingIndicator.style.display = 'none';
-                        modalProjectDescription.textContent = "An error occurred while summarizing. Please try again.";
-                    }
-                }
-            });
-
-            // Close modal when clicking outside of it
-            window.addEventListener('click', (event) => {
-                if (event.target == projectModal) {
-                    projectModal.style.display = 'none';
-                    modalProjectDescription.textContent = '';
-                    summarizeBtn.style.display = 'none';
-                    currentProjectDescription = "";
-                }
-            });
         });
     </script>
+    <p style="text-align: center; color: var(--gray); font-size: 0.9rem; padding: 20px 0;">Crafted with 💖 by Sujan K S, and powered by GitHub, DeepSeek, and Google Gemini</p>
 </body>
 </html>
